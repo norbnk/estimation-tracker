@@ -1,0 +1,21 @@
+<div class="home-component">
+  <form [formGroup]="estimationTicketGroup" (ngSubmit)="saveEstimation()" class="example-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Ticket Number</mat-label>
+      <input matInput formControlName="ticket">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Estimation</mat-label>
+      <input type="number" matInput formControlName="estimation">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Primary</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let estimation of allEstimations$ | async">
+      {{ estimation.ticket }}
+      {{ estimation.estimation }}
+    </li>
+  </ul>
+</div>
+
